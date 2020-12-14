@@ -1,8 +1,10 @@
-def isPalindrome(inputString):
+def isPalindrome(input):
     # Compare input to reverse input
+    inputString = input.replace(" ","")
     return inputString == inputString[::-1]
 
-def isLongestPalindrome(inputString):
+def isLongestPalindrome(input):
+    inputString = input.replace(" ","")
     stringLen = len(inputString)
     # if input string is empty, return 0
     if stringLen <= 0:
@@ -16,7 +18,6 @@ def isLongestPalindrome(inputString):
  
 def minPalPartion(string, firstIndex, stringLen): 
     # if input string is empty or a palindrome, return 0
-    # print(string[firstIndex:stringLen + 1])
     if firstIndex >= stringLen or isPalindrome(string[firstIndex:stringLen + 1]): 
         return 0
     ans = float('inf') 
