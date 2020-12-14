@@ -24,3 +24,5 @@ How to Run:
    * Check Palindrome - python -c "import palindrome; print(palindrome.isPalindrome([inputString]))"
    * Longest Palindrome - python -c "import palindrome; print(palindrome.isLongestPalindrome([inputString]))"
    * Minimum Cuts Palindrome python -c "import palindrome; print(palindrome.isMinimumCut([inputString]))"   
+
+Tests: Run palindrometest.py - python palindrometest.py
