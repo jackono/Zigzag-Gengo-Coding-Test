@@ -13,7 +13,7 @@ class TestSum(unittest.TestCase):
    def test_longPalindrome(self):
       assert isLongestPalindrome('abaxyzzyxf') == 'xyzzyx', "Should be xyzzyx"
       assert isLongestPalindrome('abbaddabsa') == 'baddab', "Should be baddab"
-      assert isLongestPalindrome('nurses run') == 'nurses run', "Should be nurses run"
+      assert isLongestPalindrome('nurses run') == 'nursesrun', "Should be nurses run"
    def test_minimumCutPal(self):
       assert isMinimumCut('noonabbad') == 2, "Should be 2"
       assert isMinimumCut('nurses run') == 0, "Should be 0"
