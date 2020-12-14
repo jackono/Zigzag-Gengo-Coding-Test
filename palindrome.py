@@ -1,34 +1,31 @@
-def isPalindrome(s):
-    return s == s[::-1]
+def isPalindrome(inputString):
+    # Compare input to reverse input
+    return inputString == inputString[::-1]
 
-def isLongestPalindrome(s, paliLen):
-    if paliLen <= 0:
+def isLongestPalindrome(inputString):
+    stringLen = len(inputString)
+    # if input string is empty, return 0
+    if stringLen <= 0:
         return 0
-    longestPali = str('')
-    for i in range(1, paliLen):
-        for j in range(0, paliLen - i):
-            if isPalindrome(s[j:i+j]):
-                longestPali = s[j:i+j]
-    return longestPali
+    longestPal = str('') # handles empty input
+    for row in range(1, stringLen):
+        for col in range(0, stringLen - row):
+            if isPalindrome(inputString[col:row+col]):
+                longestPal = inputString[col:row+col]
+    return longestPal
  
-def minPalPartion(string, i, j): 
-    if isPalindrome(string[i:j + 1]): 
+def minPalPartion(string, firstIndex, stringLen): 
+    # if input string is empty or a palindrome, return 0
+    # print(string[firstIndex:stringLen + 1])
+    if firstIndex >= stringLen or isPalindrome(string[firstIndex:stringLen + 1]): 
         return 0
     ans = float('inf') 
-    for k in range(i, j): 
-        count = ( 
-            1 + minPalPartion(string, i, k) 
-            + minPalPartion(string, k + 1, j) 
-        ) 
-        ans = min(ans, count) 
+    # Naive recursion algorithm
+    for k in range(firstIndex, stringLen): 
+        count = (1 + minPalPartion(string, firstIndex, k) + minPalPartion(string, k + 1, stringLen)) 
+        if count < ans:
+            ans = count
     return ans 
 
-s = input("Enter your value: ") 
-
-if isPalindrome(s.replace(" ","")):
-    print("True")
-else:
-    print("False")
-
-print(isLongestPalindrome(s.replace(" ",""), len(s) + 1))
-print(minPalPartion(s.replace(" ",""), 0, len(s) - 1)) 
+def isMinimumCut(stringInput):
+    return minPalPartion(stringInput.replace(" ",""), 0, len(stringInput) - 1)
