@@ -5,7 +5,7 @@ def isPalindrome(input):
 
 def isLongestPalindrome(input):
     inputString = input.replace(" ","")
-    stringLen = len(inputString)
+    stringLen = len(inputString) + 1
     # if input string is empty, return 0
     if stringLen <= 0:
         return 0
